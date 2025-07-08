@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { Box, useMediaQuery, useTheme } from "@mui/material";
 import { motion } from "framer-motion";
 
-const letters = "SHARATH NAIK".split("");
+const letters = "SHARATH".split("");
 
 export default function ElectricReveal({ onFinish }) {
   const canvasRef = useRef(null);
