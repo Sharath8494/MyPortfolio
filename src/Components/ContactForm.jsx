@@ -3,7 +3,7 @@ import { Container, TextField, Button, Typography, Box } from "@mui/material";
 import { motion } from "framer-motion";
 import emailjs from "emailjs-com";
 
-// 👇 Your animated background style (unchanged)
+// Background style
 const backgroundStyle = {
   background: "linear-gradient(135deg, #0f0f0f, #1e1e1e)",
   minHeight: "100vh",
@@ -35,13 +35,13 @@ const ContactForm = React.forwardRef((_, ref) => {
 
     emailjs
       .sendForm(
-        "service_l1mpnf5",     // 🔁 Replace with your actual Service ID
-        "template_ujt4i8w",    // 🔁 Replace with your actual Template ID
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         formRef.current,
-        "Q4hj7My21Z4IkzFr_"         // 🔁 Replace with your actual User ID (Public Key)
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       )
       .then(
-        (result) => {
+        () => {
           alert("Message sent successfully! 🎉");
           formRef.current.reset();
         },
